@@ -1,0 +1,165 @@
+/* medusa-search-select default styles.
+   Override any of these CSS variables from your own app to theme it. */
+
+.mss-container {
+  --mss-border-color: #d1d5db;
+  --mss-border-radius: 6px;
+  --mss-bg: #ffffff;
+  --mss-text: #111827;
+  --mss-placeholder: #9ca3af;
+  --mss-active-bg: #f3f4f6;
+  --mss-selected-bg: #eef2ff;
+  --mss-accent: #4f46e5;
+  --mss-tag-bg: #eef2ff;
+  --mss-font-size: 14px;
+
+  position: relative;
+  width: 100%;
+  font-size: var(--mss-font-size);
+  color: var(--mss-text);
+}
+
+.mss-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  min-height: 38px;
+  padding: 4px 32px 4px 8px;
+  border: 1px solid var(--mss-border-color);
+  border-radius: var(--mss-border-radius);
+  background: var(--mss-bg);
+  cursor: text;
+  position: relative;
+}
+
+.mss-control.mss-open {
+  border-color: var(--mss-accent);
+  box-shadow: 0 0 0 1px var(--mss-accent);
+}
+
+.mss-control.mss-disabled {
+  background: #f9fafb;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.mss-input {
+  flex: 1;
+  min-width: 60px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--mss-text);
+  font-size: var(--mss-font-size);
+}
+
+.mss-input::placeholder {
+  color: var(--mss-placeholder);
+}
+
+.mss-single-value {
+  padding-right: 4px;
+  white-space: nowrap;
+}
+
+.mss-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.mss-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--mss-tag-bg);
+  color: var(--mss-accent);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.85em;
+}
+
+.mss-tag-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 1em;
+  line-height: 1;
+  padding: 0;
+}
+
+.mss-clear,
+.mss-arrow {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--mss-placeholder);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.mss-arrow {
+  right: 8px;
+  pointer-events: none;
+}
+
+.mss-clear {
+  right: 26px;
+}
+
+.mss-listbox {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  max-height: 260px;
+  overflow-y: auto;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--mss-bg);
+  border: 1px solid var(--mss-border-color);
+  border-radius: var(--mss-border-radius);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mss-option {
+  padding: 8px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.mss-option.mss-active {
+  background: var(--mss-active-bg);
+}
+
+.mss-option.mss-selected {
+  background: var(--mss-selected-bg);
+  font-weight: 600;
+}
+
+.mss-option-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.mss-status {
+  padding: 8px 10px;
+  color: var(--mss-placeholder);
+}
+
+.mss-error {
+  color: #dc2626;
+}
+
+.mss-highlight {
+  background: none;
+  color: var(--mss-accent);
+  font-weight: 700;
+}

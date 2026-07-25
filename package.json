@@ -1,0 +1,66 @@
+{
+  "name": "medusa-search-select",
+  "version": "0.1.0",
+  "description": "A searchable, accessible select/combobox component for React, built for Medusa.js storefronts and admin dashboards (but usable in any React app).",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": "./dist/styles.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "select",
+    "search-select",
+    "combobox",
+    "autocomplete",
+    "dropdown",
+    "medusa",
+    "medusajs",
+    "medusa-js",
+    "component"
+  ],
+  "author": "Your Name <you@example.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/medusa-search-select.git"
+  },
+  "homepage": "https://github.com/your-username/medusa-search-select#readme",
+  "bugs": {
+    "url": "https://github.com/your-username/medusa-search-select/issues"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
