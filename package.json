@@ -35,15 +35,15 @@
     "medusa-js",
     "component"
   ],
-  "author": "Your Name <you@example.com>",
+  "author": "pritesh-52 <priteshbhatiya52@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/medusa-search-select.git"
+    "url": "git+https://github.com/pritesh-52/medusa-search-select.git"
   },
-  "homepage": "https://github.com/your-username/medusa-search-select#readme",
+  "homepage": "https://github.com/pritesh-52/medusa-search-select#readme",
   "bugs": {
-    "url": "https://github.com/your-username/medusa-search-select/issues"
+    "url": "https://github.com/pritesh-52/medusa-search-select/issues"
   },
   "peerDependencies": {
     "react": ">=17.0.0",
