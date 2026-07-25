@@ -84,7 +84,7 @@ async function fetchOptions(query: string, signal: AbortSignal) {
   minSearchLength={1}
   debounceMs={300}
   onChange={(opt) => console.log("selected", opt)}
-/>
+/>;
 ```
 
 ## Using it with Medusa.js
@@ -93,14 +93,11 @@ The package ships small helpers that build a `fetchOptions` function for
 you, pointed at Medusa's Store or Admin REST API:
 
 ```tsx
-import {
-  SearchSelect,
-  createMedusaProductFetcher,
-} from "medusa-search-select";
+import { SearchSelect, createMedusaProductFetcher } from "medusa-search-select";
 
 const fetchProducts = createMedusaProductFetcher({
   baseUrl: process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL!,
-  path: "/store/products",       // or "/admin/products"
+  path: "/store/products", // or "/admin/products"
   limit: 10,
   headers: {
     "x-publishable-api-key": process.env.NEXT_PUBLIC_MEDUSA_PUBLISHABLE_KEY!,
@@ -112,7 +109,7 @@ const fetchProducts = createMedusaProductFetcher({
   minSearchLength={2}
   placeholder="Search products..."
   onChange={(product) => console.log(product?.data)} // full Medusa product on `data`
-/>
+/>;
 ```
 
 There's an equivalent `createMedusaCustomerFetcher` for the Admin API's
@@ -128,33 +125,28 @@ requirement.
 ```tsx
 const [values, setValues] = useState<SearchSelectOption[]>([]);
 
-<SearchSelect
-  options={countries}
-  multiple
-  values={values}
-  onChangeMulti={setValues}
-/>
+<SearchSelect options={countries} multiple values={values} onChangeMulti={setValues} />;
 ```
 
 ---
 
 ## Props
 
-| Prop | Type | Default | Description |
-|---|---|---|---|
-| `options` | `SearchSelectOption[]` | — | Static list of options (ignored if `fetchOptions` is set) |
-| `fetchOptions` | `(query, signal) => Promise<SearchSelectOption[]>` | — | Async source of options |
-| `value` / `onChange` | single-select controlled state | — | For single-select mode |
-| `values` / `onChangeMulti` | multi-select controlled state | — | For `multiple` mode |
-| `multiple` | `boolean` | `false` | Enable multi-select |
-| `minSearchLength` | `number` | `0` | Don't fetch until query reaches this length |
-| `debounceMs` | `number` | `300` | Debounce delay before searching |
-| `placeholder` / `searchPlaceholder` | `string` | — | Text shown closed / while typing |
-| `noOptionsMessage` / `loadingMessage` | `string` | — | Empty and loading states |
-| `clearable` | `boolean` | `true` | Show a clear (×) button |
-| `disabled` | `boolean` | `false` | Disable the control |
-| `renderOption` | `(option, isActive, query) => ReactNode` | — | Custom option rendering |
-| `renderValue` | `(option) => ReactNode` | — | Custom selected-value rendering |
+| Prop                                  | Type                                               | Default | Description                                               |
+| ------------------------------------- | -------------------------------------------------- | ------- | --------------------------------------------------------- |
+| `options`                             | `SearchSelectOption[]`                             | —       | Static list of options (ignored if `fetchOptions` is set) |
+| `fetchOptions`                        | `(query, signal) => Promise<SearchSelectOption[]>` | —       | Async source of options                                   |
+| `value` / `onChange`                  | single-select controlled state                     | —       | For single-select mode                                    |
+| `values` / `onChangeMulti`            | multi-select controlled state                      | —       | For `multiple` mode                                       |
+| `multiple`                            | `boolean`                                          | `false` | Enable multi-select                                       |
+| `minSearchLength`                     | `number`                                           | `0`     | Don't fetch until query reaches this length               |
+| `debounceMs`                          | `number`                                           | `300`   | Debounce delay before searching                           |
+| `placeholder` / `searchPlaceholder`   | `string`                                           | —       | Text shown closed / while typing                          |
+| `noOptionsMessage` / `loadingMessage` | `string`                                           | —       | Empty and loading states                                  |
+| `clearable`                           | `boolean`                                          | `true`  | Show a clear (×) button                                   |
+| `disabled`                            | `boolean`                                          | `false` | Disable the control                                       |
+| `renderOption`                        | `(option, isActive, query) => ReactNode`           | —       | Custom option rendering                                   |
+| `renderValue`                         | `(option) => ReactNode`                            | —       | Custom selected-value rendering                           |
 
 ## Theming
 
@@ -187,6 +179,7 @@ npm run lint     # tsc --noEmit type check
 1. **Create an npm account** (if you don't have one) at https://www.npmjs.com/signup.
 
 2. **Log in from the CLI:**
+
    ```bash
    npm login
    ```
@@ -197,30 +190,37 @@ npm run lint     # tsc --noEmit type check
    - Fill in `author`, `repository`, `homepage`, `bugs` with your real GitHub URL.
 
 4. **Build before publishing** (also runs automatically via `prepublishOnly`):
+
    ```bash
    npm run build
    ```
 
 5. **Do a dry run** to see exactly what will be published:
+
    ```bash
    npm pack --dry-run
    ```
+
    Confirm only `dist/`, `package.json`, `README.md`, and `LICENSE` are included
    (the `files` field in `package.json` already restricts this).
 
 6. **Publish:**
+
    ```bash
    npm publish
    ```
+
    Since the name has no `@scope/`, it publishes as a public package by
    default. If you scope it (`@yourname/medusa-search-select`), keep
    `"publishConfig": { "access": "public" }` in `package.json` (already set)
    so scoped packages don't default to private.
 
 7. **Verify:**
+
    ```bash
    npm view medusa-search-select
    ```
+
    or check `https://www.npmjs.com/package/medusa-search-select`.
 
 8. **Releasing updates:**
@@ -231,6 +231,7 @@ npm run lint     # tsc --noEmit type check
    ```
 
 ### Tips
+
 - Add a `.npmignore` or rely on the `files` field (already configured) to
   keep the published tarball small — only `dist/` is shipped, not `src/`.
 - Enable 2FA on your npm account for publish protection.

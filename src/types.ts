@@ -42,7 +42,11 @@ export interface SearchSelectProps<T = unknown> {
   autoFocus?: boolean;
 
   /** Custom rendering hooks */
-  renderOption?: (option: SearchSelectOption<T>, isActive: boolean, query: string) => ReactNode;
+  renderOption?: (
+    option: SearchSelectOption<T>,
+    isActive: boolean,
+    query: string
+  ) => ReactNode;
   renderValue?: (option: SearchSelectOption<T>) => ReactNode;
 
   className?: string;

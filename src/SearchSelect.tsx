@@ -1,10 +1,4 @@
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useDebouncedValue } from "./useDebouncedValue";
 import type { SearchSelectOption, SearchSelectProps } from "./types";
 
@@ -75,17 +69,16 @@ export function SearchSelect<T = unknown>({
 
   // Resolve the list of options to render: async results, or filtered static list
   const visibleOptions = useMemo(() => {
-    if (isAsync) return asyncOptions;
+    if (isAsync) {
+      return debouncedQuery.length < minSearchLength ? [] : asyncOptions;
+    }
     return defaultFilter(options ?? [], debouncedQuery);
-  }, [isAsync, asyncOptions, options, debouncedQuery]);
+  }, [isAsync, asyncOptions, options, debouncedQuery, minSearchLength]);
 
   // Fetch async options whenever the debounced query changes
   useEffect(() => {
     if (!isAsync || !isOpen) return;
-    if (debouncedQuery.length < minSearchLength) {
-      setAsyncOptions([]);
-      return;
-    }
+    if (debouncedQuery.length < minSearchLength) return;
 
     abortRef.current?.abort();
     const controller = new AbortController();

@@ -61,13 +61,11 @@ export function createMedusaProductFetcher(config: {
     const data = await res.json();
     const products: MedusaProductLike[] = data.products ?? [];
 
-    return products.map(
-      (p): SearchSelectOption<MedusaProductLike> => ({
-        value: p.id,
-        label: p.title,
-        data: p,
-      })
-    );
+    return products.map((p): SearchSelectOption<MedusaProductLike> => ({
+      value: p.id,
+      label: p.title,
+      data: p,
+    }));
   };
 }
 
@@ -101,12 +99,10 @@ export function createMedusaCustomerFetcher(config: {
     const data = await res.json();
     const customers: MedusaCustomerLike[] = data.customers ?? [];
 
-    return customers.map(
-      (c): SearchSelectOption<MedusaCustomerLike> => ({
-        value: c.id,
-        label: [c.first_name, c.last_name].filter(Boolean).join(" ") || c.email,
-        data: c,
-      })
-    );
+    return customers.map((c): SearchSelectOption<MedusaCustomerLike> => ({
+      value: c.id,
+      label: [c.first_name, c.last_name].filter(Boolean).join(" ") || c.email,
+      data: c,
+    }));
   };
 }
