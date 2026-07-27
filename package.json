@@ -1,6 +1,6 @@
 {
   "name": "medusa-search-select",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A searchable, accessible select/combobox component for React, built for Medusa.js storefronts and admin dashboards (but usable in any React app).",
   "type": "module",
   "main": "./dist/index.cjs",
